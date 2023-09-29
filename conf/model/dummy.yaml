@@ -1,0 +1,2 @@
+_target_: hulc.models.dummy.Dummy
+_recursive_: false

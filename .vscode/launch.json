@@ -1,0 +1,45 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "hulc/training.py",
+      "console": "integratedTerminal",
+      "args": [
+        "trainer.gpus=1",
+        "datamodule.root_data_dir=<PATH/TO/TASK_D_D>",
+        "logger=tb_logger",
+        // "callbacks.rollout_lh.skip_epochs=0",
+        // "callbacks.rollout_lh.rollout_freq=",
+        "~callbacks.rollout_lh",
+        // "~callbacks.rollout"
+      ],
+      "justMyCode": true
+    },
+    {
+      "name": "test dataloading",
+      "type": "python",
+      "request": "launch",
+      "program": "hulc/training.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "trainer.gpus=1",
+        "datamodule.root_data_dir=<PATH/TO/TASK_D_D>",
+        "+trainer.check_val_every_n_epoch=1",
+        // "datamodule.epoch_num_steps=1000",
+        // "datamodule.datasets.lang_dataset.normalize_mode=",
+        //"callbacks.rollout.ep_len=63",
+        "model=dummy",
+        "logger=tb_logger"
+      ]
+    }
+  ]
+}
+
+ 
